@@ -5,6 +5,7 @@ module.exports = {
   development: {
     client: 'pg',
     connection: 'postgres://localhost/rocksermons',
+    searchPath: 'knex,public'
   }
 
   // staging: {
