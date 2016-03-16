@@ -1,7 +1,7 @@
-var environment = ‘environment’;
+var environment = 'development';
 
-var config = require(‘../knexfile’)[environment];
+var config = require('../knexfile')[environment];
 
-var knex = require(‘knex’)(config);
+var knex = require('knex')(config);
 
 module.export = knex;

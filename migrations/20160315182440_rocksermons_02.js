@@ -2,10 +2,9 @@
 
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('series', function(table){
-    table.increments();
-    table.varchar('series_title').unique();
+    table.varchar('series_title').unique().primary();
     table.varchar('subtitle');
-    table.varchar('description');
+    table.text('description');
     table.dateTime('first_date');
     table.dateTime('last_date');
     table.varchar('main_image');
@@ -13,10 +12,9 @@ exports.up = function(knex, Promise) {
     table.boolean('active');
   }).then(function(){
     return knex.schema.createTable('sermon', function(table){
-    table.increments();
     table.string('seriestitle').references('series_title').inTable('series');
     table.integer('order');
-    table.varchar('sermon_title').unique();
+    table.varchar('sermon_title').unique().primary();
     table.varchar('speaker');
     table.varchar('video');
     table.dateTime('date_delivered');
@@ -24,8 +22,8 @@ exports.up = function(knex, Promise) {
   })}).then(function(){
     return knex.schema.createTable('notes', function(table){
     table.increments();
-    table.string('sermontitle').references('sermon_title').inTable('sermon');
-    table.string('item_type');
+    table.varchar('sermontitle').references('sermon_title').inTable('sermon');
+    table.varchar('item_type');
     table.string('item_sequence');
     table.text('item_text');
   })})

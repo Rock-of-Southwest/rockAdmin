@@ -25,7 +25,7 @@ exports.seed = function(knex, Promise) {
         sermontitle: 'A Good Neighbor',
         item_type: 'point',
         item_sequence: 1,
-        item_text: 'Travel on the {{  }} side of the road.'
+        item_text: 'Travel on the {{blank1}} side of the road.'
       }),
       knex('notes').insert({
         id: 5,
@@ -38,7 +38,7 @@ exports.seed = function(knex, Promise) {
         sermontitle: 'A Good Neighbor',
         item_type: 'point',
         item_sequence: 2,
-        item_text: 'Express love through {{   }}'
+        item_text: 'Express love through {{blank2}}'
       }),
       knex('notes').insert({
         id: 7,
@@ -51,7 +51,7 @@ exports.seed = function(knex, Promise) {
         sermontitle: 'A Good Neighbor',
         item_type: 'point',
         item_sequence: 3,
-        item_text: 'Live life with {{   }}'
+        item_text: 'Live life with {{blank3}}'
       }),
       knex('notes').insert({
         id: 9,
@@ -75,8 +75,8 @@ exports.seed = function(knex, Promise) {
         id: 12,
         sermontitle: 'A Good Neighbor',
         item_type: 'versetext',
-        item_text: 'On one occasion an expert in the law stood up to test Jesus. "Teacher," he asked, “what must I do to inherit eternal life?” <br>“What is written in the Law?” he replied. “How do you read it?” <br>He answered, “‘Love the Lord your God with all your heart and with all your soul and with all your strength and with all your mind’; and, ‘Love your neighbor as yourself.’” <br>“You have answered correctly,” Jesus replied. “Do this and you will live.” <br>But he wanted to justify himself, so he asked Jesus, “And who is my neighbor?” <br> In reply Jesus said: “A man was going down from Jerusalem to Jericho, when he was attacked by robbers. They stripped him of his clothes, beat him and went away, leaving him half dead. A priest happened to be going down the same road, and when he saw the man, he passed by on the other side. So too, a Levite, when he came to the place and saw him, passed by on the other side. But a Samaritan, as he traveled, came where the man was; and when he saw him, he took pity on him. He went to him and bandaged his wounds, pouring on oil and wine. Then he put the man on his own donkey, brought him to an inn and took care of him. The next day he took out two denarii and gave them to the innkeeper. ‘Look after him,’ he said, ‘and when I return, I will reimburse you for any extra expense you may have.’ <br>“Which of these three do you think was a neighbor to the man who fell into the hands of robbers?” <br>The expert in the law replied, “The one who had mercy on him.” <br>Jesus told him, “Go and do likewise.”'
-      }),
+        item_text: 'On one occasion an expert in the law stood up to test Jesus. "Teacher," he asked, "what must I do to inherit eternal life?" "What is written in the Law?" he replied. "How do you read it?" He answered, "\'Love the Lord your God with all your heart and with all your soul and with all your strength and with all your mind\'; and, \'Love your neighbor as yourself.\'" "You have answered correctly," Jesus replied. "Do this and you will live." But he wanted to justify himself, so he asked Jesus, "And who is my neighbor?" In reply Jesus said: "A man was going down from Jerusalem to Jericho, when he was attacked by robbers. They stripped him of his clothes, beat him and went away, leaving him half dead. A priest happened to be going down the same road, and when he saw the man, he passed by on the other side. So too, a Levite, when he came to the place and saw him, passed by on the other side. But a Samaritan, as he traveled, came where the man was; and when he saw him, he took pity on him. He went to him and bandaged his wounds, pouring on oil and wine. Then he put the man on his own donkey, brought him to an inn and took care of him. The next day he took out two denarii and gave them to the innkeeper. \'Look after him,\' he said, \'and when I return, I will reimburse you for any extra expense you may have.\' "Which of these three do you think was a neighbor to the man who fell into the hands of robbers?" The expert in the law replied, "The one who had mercy on him." Jesus told him, "Go and do likewise."'
+      })
 
     ])
   });
