@@ -26,7 +26,20 @@ exports.up = function(knex, Promise) {
     table.varchar('item_type');
     table.string('item_sequence');
     table.text('item_text');
-  })})
+  })}).then(function(){
+    return knex.schema.createTable('noteSubmission', function(table){
+      table.increments();
+      table.string('userid');
+      table.varchar('sermontitle').references('sermon_title').inTable('sermon');
+    })
+  }).then(function(){
+    return knex.schema.createTable('noteAnswers', function(table){
+      table.increments();
+      table.integer('noteId').references('id').inTable('notes');
+      table.text('answer');
+      table.integer('submissionId').references('id').inTable('noteSubmission')
+    })
+  })
 };
 
 exports.down = function(knex, Promise) {

@@ -25,7 +25,7 @@ exports.seed = function(knex, Promise) {
         sermontitle: 'A Good Neighbor',
         item_type: 'point',
         item_sequence: 1,
-        item_text: 'Travel on the {{blank1}} side of the road.'
+        item_text: 'Travel on the <input type=text name=4> side of the road.'
       }),
       knex('notes').insert({
         id: 5,
@@ -38,7 +38,7 @@ exports.seed = function(knex, Promise) {
         sermontitle: 'A Good Neighbor',
         item_type: 'point',
         item_sequence: 2,
-        item_text: 'Express love through {{blank2}}'
+        item_text: 'Express love through <input type=text name=6>'
       }),
       knex('notes').insert({
         id: 7,
@@ -51,7 +51,7 @@ exports.seed = function(knex, Promise) {
         sermontitle: 'A Good Neighbor',
         item_type: 'point',
         item_sequence: 3,
-        item_text: 'Live life with {{blank3}}'
+        item_text: 'Live life with <input type=text name=8>'
       }),
       knex('notes').insert({
         id: 9,

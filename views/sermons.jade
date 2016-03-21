@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1 Sermons
+  ul 
+    each sermon in sermons
+      li
+        a(href='/sermons/' + sermon.sermon_title)
+          span= sermon.sermon_title
+          span= sermon.date_delivered
+
+      

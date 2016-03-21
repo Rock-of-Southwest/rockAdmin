@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1 #{sermon.sermon_title}
+  p From the sermon series #{sermon.seriestitle}. #{sermon.description}
+  form(action='/sermons/'+sermon.sermon_title, method='post')
+    each note in notes
+      div !{note.item_text}
+    button(type='submit') Submit
+  script(src='/javascripts/populateForm.js')
+  

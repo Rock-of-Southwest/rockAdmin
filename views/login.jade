@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1 Welcome to #{title}
+  form(action='login', method='post')
+    input(
+      type= 'text'
+      name= 'user'
+      placeholder= 'User Name')
+    input(
+      type= 'password'
+      name= 'password'
+      placeholder= 'Password')
+    button(type='submit') Login
