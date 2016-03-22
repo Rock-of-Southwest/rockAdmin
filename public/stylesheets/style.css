@@ -1,8 +1,30 @@
 body {
-  padding: 50px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.newSermonLabel {
+  font-size: 26px;
+}
+
+.selectdiv {
+  display: inline-block;
+  color: black;
+}
+
+.logo {
+  height: 100px;
+}
+
+.jumbotron {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  margin-bottom: 30px;
+  color: inherit;
+  background-color: #4e5d6c
 }

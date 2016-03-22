@@ -1,0 +1,41 @@
+extends layout
+
+block content
+  h1 Create and Update Sermon Notes
+  h2 #{sermon.sermon_title}
+  p Sermon #{sermon.order} in #{sermon.seriestitle}
+  p Speaker: #{sermon.speaker}
+  p Sermon Date: #{sermon.date_delivered}
+  p Video URL: #{sermon.video}
+  p Active?: #{sermon.active}
+  a(class='btn btn-primary' href='/editsermon/' + encodeURIComponent(sermon.sermon_title)) Edit Sermon
+  
+  h3 Add Notes
+  form
+    div(class='form-group')
+      label(class='col-lg-2' for='item_type') Select a type
+        div(class='col-lg-10 selectdiv')
+          select(name='item_type' id='item_type')
+            option Main verse
+            option header1
+            option header2
+            option header3
+            option point
+            option subpoint
+            option comment
+            option Discussion Question
+            option Verse
+            option Verse Text 
+    div(class='form-group')
+      label(class='col-lg-2' for='item_sequence') Item Sequence
+    
+
+
+
+//- h1 #{sermon.sermon_title}
+//- p From the sermon series #{sermon.seriestitle}. #{sermon.description}
+//- form(action='/sermons/'+sermon.sermon_title, method='post')
+//-   each note in notes
+//-     div !{note.item_text}
+//-   button(type='submit') Submit
+//- script(src='/javascripts/populateForm.js')

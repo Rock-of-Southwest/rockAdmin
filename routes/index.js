@@ -41,6 +41,49 @@ router.get('/sermonsAdmin', function(req, res, next){
   })
 })
 
+router.get('/editsermon/:sermontitle', function(req, res, next){
+  return knex.first('*')
+    .from('sermon')
+    .where('sermon_title', req.params.sermontitle).then(function(sermon){
+      
+      return knex.select('*')
+        .from('series').then(function(series){
+          res.render('editsermon', {series:series, sermon:sermon});
+        })
+
+  })
+})
+
+router.get('/addNotes/:sermontitle', function(req, res, next){
+  console.log(req.params);
+  return knex.first('*')
+    .from('sermon')
+    .where('sermon_title', req.params.sermontitle).then(function(sermon){
+      res.render('addNotes', {sermon:sermon});
+      console.log(sermon);
+  })
+})
+
+
+router.get('/newsermon', function(req, res, next){
+  return knex.select('*')
+    .from('series').then(function(series){
+      res.render('newsermon', {series:series});
+  });
+})
+
+router.post('/newsermon', function(req, res, next){
+  console.log(req.body);
+  return knex.insert(req.body).into('sermon').then(function(){
+    res.redirect('addNotes/' + req.body.sermon_title)
+  }).catch(function(error){
+    console.log(error);
+    res.render('error', {
+      error: error
+    })
+  })
+})
+
 router.get('/sermons/:sermon_title', function(req, res, next){
   return knex.join('series', 'sermon.seriestitle', 'series.series_title')
   .first('*')

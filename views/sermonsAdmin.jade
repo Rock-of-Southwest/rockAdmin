@@ -5,7 +5,7 @@ block content
   ul 
     each sermon in sermons
       li
-        a(href='/sermons/' + sermon.sermon_title)
+        a(href='/addNotes/' + encodeURIComponent(sermon.sermon_title))
           span= sermon.sermon_title
           span= sermon.date_delivered
 

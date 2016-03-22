@@ -1,28 +1,31 @@
 extends layout
 
 block content
-  form(class='form-horizontal' action='/newsermon' method='post')
+  form(class='form-horizontal' action='/editsermon' method='post')
     fieldset
       div
-        legend Create a new sermon
+        legend Edit a sermon
       div(class='form-group')
         label(class='col-lg-2 newSermonLabel' for='series_title') Select a sermon series
         div(class='col-lg-10 selectdiv')
           select(name='seriestitle' id='select')
             each sery in series
-              option(value=sery.series_title) #{sery.series_title}
+              if sery.series_title == sermon.seriestitle
+                option(selected value=sery.series_title) #{sery.series_title}
+              else 
+                option(value=sery.series_title) #{sery.series_title}
       div(class='form-group')
         label(class='col-lg-2 newSermonLabel' for='sermon_title') Sermon Title
-        input(class='col-lg-10' type='text' id='sermon_title' name='sermon_title' placeholder='Sermon Title')
+        input(class='col-lg-10' type='text' id='sermon_title' name='sermon_title' placeholder='Sermon Title' value=sermon.sermon_title)
       div(class='form-group')
         label(class='col-lg-2 newSermonLabel' for='speaker') Speaker
-        input(class='col-lg-10' type='text' id='speaker' name='speaker' placeholder='speaker')
+        input(class='col-lg-10' type='text' id='speaker' name='speaker' placeholder='speaker' value=sermon.speaker)
       div(class='form-group')
         label(class='col-lg-2 newSermonLabel' for='date_delivered') Date Delivered
-        input(class='col-lg-10' type='date' id='date_delivered' name='date_delivered') 
+        input(class='col-lg-10' type='date' id='date_delivered' name='date_delivered' value=sermon.date_delivered) 
       div(class='form-group')
         label(class='col-lg-2 newSermonLabel' for='video') Video URL
-        input(class='col-lg-10' type='video' id='video' name='video') 
+        input(class='col-lg-10' type='video' id='video' name='video' value=sermon.video) 
       div(class='form-group')
         label(class='radio-inline newSermonLabel' for='active') Activate
         input(class='radio-inline' type='radio' name='active' value='true') 

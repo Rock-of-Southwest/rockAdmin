@@ -2,6 +2,7 @@ extends layout
 
 block content
   h1 #{sermon.sermon_title}
+  
   p From the sermon series #{sermon.seriestitle}. #{sermon.description}
   form(action='/sermons/'+sermon.sermon_title, method='post')
     each note in notes

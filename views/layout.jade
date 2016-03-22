@@ -1,8 +1,15 @@
 doctype html
 html
   head
+    link(rel='stylesheet' href="https://bootswatch.com/superhero/bootstrap.css")
     script(src="//code.jquery.com/jquery-1.12.0.min.js")
     title #{title}
     link(rel='stylesheet', href='/stylesheets/style.css')
+  header(class='jumbotron')
+    img(src='/images/LogoWhite.png' class='logo')
   body
     block content
+    
+  footer
+    
+  
