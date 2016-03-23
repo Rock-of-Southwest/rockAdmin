@@ -87,6 +87,13 @@ router.get('/addNotes/:sermontitle', function(req, res, next){
   })
 })
 
+router.post('/addNotes/:sermontitle', function(req, res, next){
+  return knex.insert(req.body, 'id').into('notes').then(function(notes){
+    res.json(notes)
+  }).catch(function(error){
+    res.status(400).json(error)
+  })
+})
 
 router.get('/newsermon', function(req, res, next){
   return knex.select('*')
@@ -107,13 +114,13 @@ router.post('/newsermon', function(req, res, next){
   })
 })
 
-router.get('/sermons/:sermon_title', function(req, res, next){
+router.get('/oneSermon/:sermon_title', function(req, res, next){
   return knex.join('series', 'sermon.seriestitle', 'series.series_title')
   .first('*')
   .where('sermon_title', req.params.sermon_title)
   .from('sermon')
   .then(function(sermon){
-    return knex.select('*').leftJoin('noteAnswers', 'notes.id', 'noteAnswers.noteId').where('notes.sermontitle', sermon.sermon_title).from('notes').orderBy('notes.id')
+    return knex.select('*').where('notes.sermontitle', sermon.sermon_title).from('notes').orderBy('notes.id')
     .then(function(notes){
       console.log(notes);
       res.render('oneSermon',  {sermon:sermon, notes:notes})
@@ -123,7 +130,7 @@ router.get('/sermons/:sermon_title', function(req, res, next){
   })
 })
 
-router.post('/sermons/:sermon_title', function(req, res, next){
+router.post('/oneSermon/:sermon_title', function(req, res, next){
   knex.first('*')
     .from('noteSubmission')
     .where('sermontitle', req.params.sermon_title).then(function(submission){
@@ -141,7 +148,7 @@ router.post('/sermons/:sermon_title', function(req, res, next){
         return upsertAnswer(noteId, answer, submissionID)
       }))
     }).then(function(){
-      res.redirect('/sermons/' + req.params.sermon_title)
+      res.redirect('/oneSermon/' + req.params.sermon_title)
     })
 })
 

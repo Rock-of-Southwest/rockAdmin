@@ -21,7 +21,7 @@ exports.up = function(knex, Promise) {
     table.boolean('active');
   })}).then(function(){
     return knex.schema.createTable('notes', function(table){
-    table.increments();
+    table.increments().primary;
     table.varchar('sermontitle').references('sermon_title').inTable('sermon');
     table.varchar('item_type');
     table.string('item_sequence');

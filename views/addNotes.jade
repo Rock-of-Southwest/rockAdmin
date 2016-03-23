@@ -11,50 +11,56 @@ block content
     p Video URL: #{sermon.video}
     p Active?: #{sermon.active}
     a(class='btn btn-primary' href='/editsermon/' + encodeURIComponent(sermon.sermon_title)) Edit Sermon
-
-  .col-lg-5
-    section(class='formContainer')
-      div(ng-app='noteForm')
-        div(ng-controller='noteController')
-            form.form-horizontal
-              fieldset
-                legend Add Note Items
-                .form-group
-                  label.col-lg-2.control-label(for='select') Selects
-                  .col-lg-10
-                    select#select.form-control
-                      option
-                      option Main verse
-                      option Header1
-                      option Header2
-                      option Header3
-                      option Point
-                      option Subpoint
-                      option Comment
-                      option Discussion Question
-                      option Verse
-                      option Verse Text
-                    br
-                div(class='form-group')
-                  label(class='col-lg-2' for='item_sequence') Item Sequence
-                  input(class='col-lg-10' type='number' name='item_sequence')
-                .form-group
-                  label.col-lg-2.control-label(for='textArea') Textarea
-                  .col-lg-10
-                    textarea#textArea.form-control(rows='3', data-gramm='', data-txt_gramm_id='472c8796-506d-5615-38e8-dc5110f018a3')
-                .form-group 
-                .form-group
-                  .col-lg-10.col-lg-offset-2
-                    button.btn.btn-default(type='reset') Cancel
-                    button.btn.btn-primary(type='submit') Submit
-    .col-lg-2
-    .col-lg-5
-      .notesContainer
+  div(ng-app='noteForm')
+    div(ng-controller='noteController')
+      .col-lg-5
+        section(class='formContainer')
+          div(ng-app='noteForm')
+            div
+                form.form-horizontal(ng-submit='addNote()')
+                  fieldset
+                    legend Add Note Items
+                    .form-group
+                      label.col-lg-2.control-label(for='textArea') Sermon Title
+                      .col-lg-10
+                        input(class='col-lg-10' ng-model='sermontitle' type='text' id='sermon_title' name='sermon_title' value=sermon.sermon_title)
+                    .form-group
+                      label.col-lg-2.control-label(for='select') Selects
+                      .col-lg-10
+                        select(name='item_type' ng-model='item_type')#select.form-control
+                          option
+                          option Main verse
+                          option Header1
+                          option Header2
+                          option Header3
+                          option Point
+                          option Subpoint
+                          option Comment
+                          option Discussion Question
+                          option Verse
+                          option Verse Text
+                        br
+                    div(class='form-group')
+                      label(class='col-lg-2' for='item_sequence') Item Sequence
+                      input(class='col-lg-10' type='number' name='item_sequence' ng-model='item_sequence')
+                    .form-group
+                      label.col-lg-2.control-label(for='textArea') Textarea
+                      .col-lg-10
+                        textarea#textArea.form-control(rows='3', data-gramm='', data-txt_gramm_id='472c8796-506d-5615-38e8-dc5110f018a3' ng-model='item_text')
+                    .form-group 
+                    .form-group
+                      .col-lg-10.col-lg-offset-2
+                        button.btn.btn-default(type='reset' ng-click='reset()') Reset
+                        button.btn.btn-primary(type='submit') Submit
+        .col-lg-2
+        .col-lg-5
+          .notesContainer
+            div(ng-repeat='note in notes' ng-class='note.item_type') {{note.item_text}}
       
 
 
 
-  script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.js')
+  script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.10/angular.js')
   script(src='/javascripts/notesform.js')
   
   
