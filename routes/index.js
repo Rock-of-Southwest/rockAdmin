@@ -25,6 +25,7 @@ router.post('/login', function (req, res, next) {
 router.get('/sermons', function(req, res, next){
   knex.select('*')
   .from('sermon')
+  .where('sermon.active', 'true')
   .then(function(sermons){
     for (var i=0; i<sermons.length; i++){
       sermons[i].date_delivered = moment(sermons[i].date_delivered).format('MMMM Do YY')
