@@ -1,6 +1,7 @@
 var express = require('express');
 var knex = require('../db/knex');
 var router = express.Router();
+var moment = require('moment')
 
 function Sermon() {
   return knex('sermon');
@@ -11,6 +12,14 @@ router.get('/', function(req, res, next) {
     res.status(200).json({sermon: sermon});
   });
 });
+
+router.get('/:sermon_title/notes', function(req, res, next){
+  return knex.select('*')
+    .from('notes')
+    .where('sermontitle', req.params.sermon_title).then(function(notes){
+      res.json(notes)
+  })
+})
 
 //read one
 router.get('/:sermon_title', function(req, res, next){
@@ -26,7 +35,7 @@ router.post('/', function(req, res, next){
     sermon_title: req.body.sermon_title,
     speaker: req.body.speaker,
     video: req.body.video,
-    date_delivered: req.body.date_delivered,
+    date_delivered: moment(req.body.date_delivered).format('MMM Do YY'),
     active: req.body.active
   }).then(function(result){
     res.json(result)

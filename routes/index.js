@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var knex = require('../db/knex');
 var _ = require('lodash')
+var moment = require('moment')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -35,6 +36,9 @@ router.get('/sermonsAdmin', function(req, res, next){
   knex.select('*')
   .from('sermon')
   .then(function(sermons){
+    for (var i=0; i<sermons.length; i++){
+      sermons[i].date_delivered = moment(sermons[i].date_delivered).format('MMMM Do YY')
+    }
     res.render('sermonsAdmin', {sermons:sermons})
   }).catch(function(error){
     console.log(error);
@@ -45,12 +49,27 @@ router.get('/editsermon/:sermontitle', function(req, res, next){
   return knex.first('*')
     .from('sermon')
     .where('sermon_title', req.params.sermontitle).then(function(sermon){
-      
+      sermon.date_delivered = moment(sermon.date_delivered).format('YYYY-MM-DD')
       return knex.select('*')
         .from('series').then(function(series){
           res.render('editsermon', {series:series, sermon:sermon});
         })
+  })
+})
 
+router.post('/editsermon/:sermontitle', function(req, res, next){
+  return knex.update(req.body)
+    .from('sermon')
+    .where('sermon_title', req.params.sermontitle)
+    .then(function(){
+    res.redirect('/sermonsAdmin')
+    console.log(req.body);
+    console.log(req.params.sermontitle);
+  }).catch(function(error){
+    console.log(error);
+    res.render('error', {
+      error: error
+    })
   })
 })
 

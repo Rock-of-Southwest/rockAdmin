@@ -5,8 +5,15 @@ html
     script(src="//code.jquery.com/jquery-1.12.0.min.js")
     title #{title}
     link(rel='stylesheet', href='/stylesheets/style.css')
-  header(class='jumbotron')
-    img(src='/images/LogoWhite.png' class='logo')
+  header
+    div(class='navbar navbar-default')
+      div(class='container-fluid')
+        div(class='navbar-header')
+          img(src='/images/LogoWhite.png' class='logo')
+        div(class='collapse navbar-collapse')
+          ul(class='dropdown-menu' role='menu')
+            li
+
   body
     block content
     

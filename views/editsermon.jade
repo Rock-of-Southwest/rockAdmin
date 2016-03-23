@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  form(class='form-horizontal' action='/editsermon' method='post')
+  form(class='form-horizontal' method='post' action='/editsermon/'+encodeURIComponent(sermon.sermon_title))
     fieldset
       div
         legend Edit a sermon
@@ -28,9 +28,15 @@ block content
         input(class='col-lg-10' type='video' id='video' name='video' value=sermon.video) 
       div(class='form-group')
         label(class='radio-inline newSermonLabel' for='active') Activate
-        input(class='radio-inline' type='radio' name='active' value='true') 
+        if sermon.active == true
+          input(class='radio-inline' type='radio' name='active' value='true' checked) 
+        else
+          input(class='radio-inline' type='radio' name='active' value='true') 
         label(class='radio-inline newSermonLabel' for='active') Deactivate
-        input(class='radio-inline' type='radio' name='active' value='false')
+        if sermon.active == false
+          input(class='radio-inline' type='radio' name='active' value='false' checked)
+        else
+          input(class='radio-inline' type='radio' name='active' value='false')
       div(class='form-group')
         button(type='submit' class='btn btn-primary') Submit 
     

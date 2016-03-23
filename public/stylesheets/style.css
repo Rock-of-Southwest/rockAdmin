@@ -28,3 +28,26 @@ a {
   color: inherit;
   background-color: #4e5d6c
 }
+.form-group {
+  padding-left: 25px;
+  padding-right: 25px;
+  margin: 15px
+}
+
+}
+.addNotesView {
+  display: block;
+}
+.formContainer {
+  width: 400px;
+  height: auto;
+}
+
+.notesContainer {
+  background: #4e5d6c;
+  width: 400px;
+  min-height: 400px;
+}
+.sermonInfo {
+  padding: 25px;
+}

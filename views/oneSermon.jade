@@ -2,7 +2,9 @@ extends layout
 
 block content
   h1 #{sermon.sermon_title}
-  
+  iframe(type='text/html' width='640' height='390'
+    src='#{sermon.video}'
+    frameborder='0')
   p From the sermon series #{sermon.seriestitle}. #{sermon.description}
   form(action='/sermons/'+sermon.sermon_title, method='post')
     each note in notes
