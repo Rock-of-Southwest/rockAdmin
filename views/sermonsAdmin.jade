@@ -2,11 +2,13 @@ extends layout
 
 block content
   h1 Sermons
+    div(class='addNewLink')
+    a(href='/newsermon' class='btn btn-success btn-xs') Add new sermon
   ul 
     each sermon in sermons
-      li
+      li(class='sermonList')
         a(href='/addNotes/' + encodeURIComponent(sermon.sermon_title))
           span= sermon.sermon_title
+          br
           span= sermon.date_delivered
           
-  a(href='/newsermon') Add new sermon

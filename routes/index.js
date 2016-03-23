@@ -26,6 +26,9 @@ router.get('/sermons', function(req, res, next){
   knex.select('*')
   .from('sermon')
   .then(function(sermons){
+    for (var i=0; i<sermons.length; i++){
+      sermons[i].date_delivered = moment(sermons[i].date_delivered).format('MMMM Do YY')
+    }
     res.render('sermons', {sermons:sermons})
   }).catch(function(error){
     console.log(error);
