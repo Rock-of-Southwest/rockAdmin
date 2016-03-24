@@ -29,22 +29,23 @@ block content
                       .col-lg-10
                         select(name='item_type' ng-model='item_type')#select.form-control
                           option
-                          option Main verse
-                          option Header1
-                          option Header2
-                          option Header3
-                          option Point
-                          option Subpoint
-                          option Comment
-                          option Discussion Question
-                          option Verse
-                          option Verse Text
+                          option mainverse
+                          option header1
+                          option header2
+                          option header3
+                          option point
+                          option subpoint
+                          option quote
+                          option comment
+                          option discussion question
+                          option verse
+                          option versetext
                         br
                     div(class='form-group')
                       label(class='col-lg-2' for='item_sequence') Item Sequence
                       input(class='col-lg-10' type='number' name='item_sequence' ng-model='item_sequence')
                     .form-group
-                      label.col-lg-2.control-label(for='textArea') Textarea
+                      label.col-lg-2.control-label(for='textArea') Item Text
                       .col-lg-10
                         textarea#textArea.form-control(rows='3', data-gramm='', data-txt_gramm_id='472c8796-506d-5615-38e8-dc5110f018a3' ng-model='item_text')
                     .form-group 

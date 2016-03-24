@@ -8,7 +8,7 @@ block content
   p From the sermon series #{sermon.seriestitle}. #{sermon.description}
   form(action='/oneSermon/'+sermon.sermon_title, method='post')
     each note in notes
-      div(data-id=note.id) #{note.item_text}
+      div(data-id=note.id class=note.item_type) #{note.item_text}
     button(type='submit') Submit
   script(src='/javascripts/populateForm.js')
   

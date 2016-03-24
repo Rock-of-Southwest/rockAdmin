@@ -1,11 +1,72 @@
 body {
-  padding: 0px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 50px;
+  font: 14px "Roboto Condensed", sans-serif;
 }
 
 a {
   color: #00B7FF;
 }
+
+.mainverse {
+  font-weight: 100;
+  text-align: center;
+  font-size: 16px;
+  padding: 5px;
+}
+
+.point {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px;
+  margin-top: 25px;
+}
+
+.subpoint {
+  font-size: 16px;
+  padding: 5px;
+  padding-left: 25px;
+}
+
+.header1 {
+  font-size: 39px;
+  padding: 5px;
+}
+
+.header2 {
+  font-size: 32px;
+  padding: 5px;
+}
+
+.header3 {
+  font-size: 26px;
+  padding: 5px;
+}
+
+.quote {
+  text-align: center;
+  font-weight: 100;
+  padding: 5px;
+}
+
+.verse {
+  padding: 5px;
+  font-weight: bold;
+}
+
+.discussion {
+  font-size: 14px;
+  font-weight: 200;
+  padding: 5px;
+  padding-left: 25px;
+}
+
+.versetext {
+  padding: 5px;
+  font-weight: 100;
+  font-style: italic;
+}
+
+
 
 .newSermonLabel {
   font-size: 26px;
@@ -18,6 +79,8 @@ a {
 
 .logo {
   height: 100px;
+  padding-top: 10px;
+  padding-right: 10px;
 }
 
 .jumbotron {
@@ -39,13 +102,20 @@ a {
   display: block;
 }
 .formContainer {
-  width: 400px;
+  width: 700px;
   height: auto;
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  /*flex-direction: row;*/
+
 }
 
 .notesContainer {
   background: #4e5d6c;
-  width: 400px;
+  width: 700px;
   min-height: 400px;
 }
 .sermonInfo {
@@ -56,6 +126,21 @@ a {
   padding-top: 10px;
 }
 
-.point {
-  font-size: 33px;
+.footerIcons {
+  width: 50px;
+  height: 50px;
+
+}
+.footerSection {
+  padding: 15px;
+
+}
+
+.footerText {
+  text-align: center;
+  width:50px;
+}
+
+.appName {
+  padding: 25px;
 }

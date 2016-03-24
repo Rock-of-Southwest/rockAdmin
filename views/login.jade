@@ -1,14 +1,18 @@
 extends layout
 
 block content
-  h1 Welcome to #{title}
   form(action='login', method='post')
-    input(
-      type= 'text'
-      name= 'user'
-      placeholder= 'User Name')
-    input(
-      type= 'password'
-      name= 'password'
-      placeholder= 'Password')
-    button(type='submit' class='btn btn-info') Login
+    .form-group
+      label.col-lg-2 Username
+      input(
+        type= 'text'
+        name= 'user'
+        placeholder= 'User Name')
+    .form-group
+      label.col-lg-2 Password
+      input(
+        type= 'password'
+        name= 'password'
+        placeholder= 'Password')
+    .form-group
+      button(type='submit' class='btn btn-info' id='login') Login
